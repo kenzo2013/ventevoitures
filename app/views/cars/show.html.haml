@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Brand:
+  = @car.brand
+%p
+  %strong Model:
+  = @car.model
+%p
+  %strong Price:
+  = @car.price
+%p
+  %strong Energy:
+  = @car.energy
+%p
+  %strong Image:
+  = @car.image
+= link_to 'Edit', edit_car_path(@car)
+|
+= link_to 'Back', cars_path
