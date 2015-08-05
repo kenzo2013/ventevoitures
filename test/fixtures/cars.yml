@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  model: MyString
+  price: 9.99
+  energy: MyString
+  image: MyString
+
+two:
+  brand: MyString
+  model: MyString
+  price: 9.99
+  energy: MyString
+  image: MyString
