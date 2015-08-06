@@ -1,3 +1,5 @@
+- if flash[:alert]
+  %p#notice= flash[:alert]
 = form_for(@user) do |f|
   - if @user.errors.any?
     #error_explanation
@@ -25,5 +27,6 @@
     = f.password_field :password_confirmation
     %br/
     = f.hidden_field :role, :value => "simple_user"
+ 
   .actions
-    = f.submit
+    %script.stripe-button{ src: "https://checkout.stripe.com/checkout.js", data: {  key: Rails.application.secrets.stripe_publishable_key}}

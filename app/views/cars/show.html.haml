@@ -1,4 +1,3 @@
-%p#notice= notice
 %p
   %strong Brand:
   = @car.brand
@@ -14,6 +13,6 @@
 %p
   %strong Image:
   = @car.image
-= link_to 'Edit', edit_car_path(@car)
+= link_to 'Edit', edit_car_path(@car),  :class => 'btn btn-primary'
 |
-= link_to 'Back', cars_path
+= link_to 'Back', cars_path,  :class => 'btn btn-primary'

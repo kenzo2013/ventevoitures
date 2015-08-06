@@ -9,22 +9,22 @@ class UsersController < ApplicationController
   end
   def new
     @user = User.new
+    @car = Car.find_car(params[:car_id])
   end
 
   def edit
   end
 
   def create
-    @user = User.new(user_params)
-
+    @user = User.new(user_params) 
+    user_params.merge(email: stripe_params["stripeEmail"], card_token: stripe_params["stripeToken"])
+     raise "Please, check registration errors" unless @user.valid?
+     @user.process_payment
+     @user.save
+       redirect_to root_path, notice: 'Registration was successfully created.'
+   rescue Exception => e
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to root_url, notice: "User #{@user.surname} was successfully created."}
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+      format.html { render :new ,  :flash => { :error => "#{e.message}" }}
     end
   end
   
@@ -54,11 +54,14 @@ class UsersController < ApplicationController
   end
 
   private
+    def stripe_params
+      params.permit!(:stripeEmail, :stripeToken) 
+    end
     def set_user
       @user = User.find(params[:id])
     end
 
     def user_params
-      params.require(:user).permit(:firsname, :surname, :password, :password_confirmation, :role)
+      params.require(:user).permit(:car_id, :firsname, :surname, :password, :password_confirmation, :role)
     end
 end

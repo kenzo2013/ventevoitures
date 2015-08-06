@@ -11,9 +11,11 @@
         %h3= car.energy
         .price_line
           %span.price= number_to_currency(car.price)
-        .link
-          = link_to 'Show', car
-          = link_to 'Edit', edit_car_path(car)
-          = link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to "Buy", new_user_path(car_id: car),  :class => 'btn btn-primary'
+        - if can? :admin,  User
+          .link
+            = link_to 'Edit', edit_car_path(car),  :class => 'btn btn-primary'
+            = link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' },  :class => 'btn btn-primary'
+- if can? :admin,  User
   %br/
   = link_to 'New Car', new_car_path,  :class => 'btn btn-primary'

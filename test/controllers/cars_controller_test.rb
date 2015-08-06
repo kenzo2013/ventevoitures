@@ -21,7 +21,7 @@ class CarsControllerTest < ActionController::TestCase
       post :create, car: { brand: @car.brand, energy: @car.energy, image: @car.image, model: @car.model, price: @car.price }
     end
 
-    assert_redirected_to car_path(assigns(:car))
+    assert_redirected_to root_url
   end
 
   test "should show car" do
@@ -36,7 +36,7 @@ class CarsControllerTest < ActionController::TestCase
 
   test "should update car" do
     patch :update, id: @car, car: { brand: @car.brand, energy: @car.energy, image: @car.image, model: @car.model, price: @car.price }
-    assert_redirected_to car_path(assigns(:car))
+    assert_redirected_to root_url
   end
 
   test "should destroy car" do
