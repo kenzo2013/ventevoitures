@@ -1,5 +1,6 @@
 @import "twitter/bootstrap/bootstrap";
 
+
 // Set correct font paths
 @glyphiconsEotPath: font-url("glyphicons-halflings-regular.eot");
 @glyphiconsEotPath_iefix: font-url("glyphicons-halflings-regular.eot?#iefix");
@@ -30,3 +31,106 @@
 //
 // Example:
 // @link-color: #ff0000;
+
+
+#banner {
+  background: #1C9AE8;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #050550;
+  text-align: center;
+
+}
+
+#notice {
+  color: #000 !important;
+  border: 2px solid #5882FA;
+  padding-top: 10px;
+  width: 250px;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+#container {
+    margin-left: 17em;
+    padding: 1em;
+    background: white;
+  }
+/* Navigation */
+nav {
+float: right;
+}
+nav {
+  background-color: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+nav ul li a {padding: 0 5px;
+  font-weight: bold;
+}
+nav ul li a:visited {
+  color: #09c;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+
+/*START STYLE CAR*/
+.car{
+  h1 {
+    margin: 0;
+    padding-bottom: 0.5em;
+    font:  150% sans-serif;
+    color: #1C9AE8;
+    border-bottom: 3px dotted #1C9AE8;
+  }
+
+  .entry {
+    overflow: auto;
+    margin-top: 1em;
+    border-bottom: 1px dotted #1C9AE8;
+    min-height: 100px;
+
+    img {
+      width: 80px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      position: absolute;
+    }
+
+    h3 {
+      font-size: 120%;
+      font-family: sans-serif;
+      margin-left: 100px;
+      margin-top: 0;
+      margin-bottom: 2px;
+      color: #1C9AE8
+    }
+
+    p, div.price_line {
+      margin-left: 100px;
+      margin-top: 0.5em; 
+      margin-bottom: 0.8em; 
+    }
+    form, div{
+      display: inline;
+    }
+    .price {
+      color: #1C9AE8;
+      font-weight: bold;
+      margin-right: 3em;
+    }
+  }
+}
+/*END STYLE CAR*/

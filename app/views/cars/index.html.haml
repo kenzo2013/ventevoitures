@@ -1,24 +1,19 @@
-%p#notice= notice
-%h1 Listing Cars
-%table
-  %thead
-    %tr
-      %th Brand
-      %th Model
-      %th Price
-      %th Energy
-      %th Image
-      %th{:colspan => "3"}
-  %tbody
+- if flash[:alert]
+  %p#notice= flash[:alert]
+.car
+  %h1 Listing Cars
+  %table
     - @cars.each do |car|
-      %tr
-        %td= car.brand
-        %td= car.model
-        %td= car.price
-        %td= car.energy
-        %td= car.image
-        %td= link_to 'Show', car
-        %td= link_to 'Edit', edit_car_path(car)
-        %td= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Car', new_car_path
+      .entry
+        = image_tag(car.image, :size => "80x80")
+        %h3= car.brand
+        %h3= car.model
+        %h3= car.energy
+        .price_line
+          %span.price= number_to_currency(car.price)
+        .link
+          = link_to 'Show', car
+          = link_to 'Edit', edit_car_path(car)
+          = link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  = link_to 'New Car', new_car_path,  :class => 'btn btn-primary'

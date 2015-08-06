@@ -1,0 +1,12 @@
+#banner
+  = image_tag("logo.png")
+  = @page_title || "Car sales"
+%nav.round
+  %ul
+    %li= link_to "Home", root_path 
+    - if current_user
+      %li Logged  as #{current_user.surname}#{link_to "Sign out", sign_out_path}
+    - else
+      %li= link_to "Sign up", sign_up_path
+      or
+      %li= link_to "Sign in", sign_in_path
