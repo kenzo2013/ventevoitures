@@ -7,8 +7,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    - flash.each do |name, msg|
-      = content_tag :div, msg, :id => "flash#{name}"
     #user_nav
     - if current_user
       Logged  as #{current_user.surname}#{link_to "Sign out", sign_out_path}

@@ -23,5 +23,7 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
+    %br/
+    = f.hidden_field :role, :value => "simple_user"
   .actions
     = f.submit
